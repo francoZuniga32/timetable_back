@@ -1,0 +1,12 @@
+version: "3"
+services:
+  database:
+    image: mariadb:latest
+    environment:
+      - MARIADB_USER=cooking-user 
+      - MARIADB_PASSWORD=1234
+      - MARIADB_ROOT_PASSWORD=1233
+    volumes:
+      - /home/proyectos/cooking/data:/var/lib/mysql
+    ports:
+      - 3307:3306

@@ -1,0 +1,50 @@
+{
+    "name": "cooking-beats-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "serve": "node src/index.js",
+        "dev": " nodemon src/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cookingbeats/cooking-beats-backend.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/cookingbeats/cooking-beats-backend/issues"
+    },
+    "homepage": "https://github.com/cookingbeats/cooking-beats-backend#readme",
+    "dependencies": {
+        "@adminjs/express": "^5.0.1",
+        "@sequelize/sqlite3": "^7.0.0-alpha.45",
+        "aws-sdk": "^2.1073.0",
+        "axios": "^1.8.1",
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "express-formidable": "^1.2.0",
+        "express-session": "^1.17.1",
+        "jsonwebtoken": "^9.0.2",
+        "mercadopago": "^2.3.0",
+        "moment": "^2.29.4",
+        "multer": "^1.4.2",
+        "multer-s3": "^2.10.0",
+        "mysql2": "^3.12.0",
+        "node-zip": "^1.0.1",
+        "nodemailer": "^6.6.5",
+        "nodemon": "^2.0.7",
+        "sequelize": "^6.37.5",
+        "sqlite3": "^5.1.7",
+        "tslib": "^2.4.0"
+    },
+    "devDependencies": {
+        "sequelize-cli": "^6.2.0"
+    }
+}
