@@ -27,18 +27,12 @@ app.set("key", process.env.CLAVE);
 app.set("public", path.join(__dirname, "public"));
 app.use("/static", express.static(app.get("public")));
 console.log(app.get("public"));
-app.set('view engine', 'ejs');
-
-
-app.get('/', (req, res) => {
-    res.render('index.ejs')
-})
 
 //middlewares 
 app.use('/auth', require('./app/Auth/ruta'));
 app.use('/horarios', require('./app/horarios/ruta'));
 
-app.listen(app.get("PORT"), () => {
+app.listen(app.get("PORT"), '0.0.0.0', () => {
     sequelize
         .authenticate()
         .then(() => {

@@ -5,8 +5,9 @@ const sequelize = require("../../database/index");
 const Usuario = require("../../database/models/usuarios")(sequelize, DataTypes);
 
 module.exports = async (req, res) => {
-  if (req.body.nombre && req.body.contrasenia) {
-    try {
+  try {
+    if (req.body.nombre && req.body.contrasenia) {
+
       const result = await sequelize.transaction(async (t) => {
         var usuario = await Usuario.findOne(
           {
@@ -14,7 +15,7 @@ module.exports = async (req, res) => {
             where: {
               nombreusuario: req.body.nombre,
               contrasenia: req.body.contrasenia,
-             
+
             },
           },
           { transaction: t }
@@ -34,11 +35,12 @@ module.exports = async (req, res) => {
           });
         }
       });
-    } catch (err) {
-      console.log(err);
-      res.status(401).send({ err: err });
+
+    } else {
+      res.status(204).send({ err: "No proporciono el email o la contraeña." });
     }
-  } else {
-    res.status(204).send({ err: "No proporciono el email o la contraeña." });
+  } catch (err) {
+    console.log(err);
+    res.status(401).send({ err: err });
   }
 };

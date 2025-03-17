@@ -1,12 +1,12 @@
-version: "3"
+version: '3'
 services:
-  database:
-    image: mariadb:latest
-    environment:
-      - MARIADB_USER=cooking-user 
-      - MARIADB_PASSWORD=1234
-      - MARIADB_ROOT_PASSWORD=1233
-    volumes:
-      - /home/proyectos/cooking/data:/var/lib/mysql
+  app:
+    image: node:lts
+    container_name: node_app
+    working_dir: /app
     ports:
-      - 3307:3306
+      - "3000:3000"
+    volumes:
+      - .:/app
+    command: ["node", "/app/src/index.js"]
+    mem_limit: "512m"  # Limita la memoria a 512MB

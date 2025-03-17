@@ -6,7 +6,11 @@ const Horarios = require("../../database/models/horarios")(sequelize, DataTypes)
 let controlador = {};
 
 controlador.all = async(req, res)=>{
-    res.send(await Horarios.findAll());
+    try{
+        res.send(await Horarios.findAll());
+    }catch(err){
+        res.statu(500).send(err);
+    }
 }
 
 controlador.create = async(req, res)=>{
